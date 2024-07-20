@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://kv8g6i6e6nhd"]
+
+[ext_resource type="PackedScene" uid="uid://bxytlsqpwyd13" path="res://player.tscn" id="1_526j2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grd61"]
+size = Vector2(40, 38)
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -312.0
+offset_top = -233.0
+offset_right = 1432.0
+offset_bottom = 962.0
+color = Color(0.233267, 0.457528, 0.23597, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_526j2")]
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(179, -6)
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(21, 21)
+shape = SubResource("RectangleShape2D_grd61")
+
+[node name="ColorRect" type="ColorRect" parent="Enemy"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.693599, 0, 0.153075, 1)
